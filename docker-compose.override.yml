@@ -30,7 +30,7 @@ services:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
     ports:
-      - "5433:1433"
+      - "5434:1433"
     volumes:
       - rt-sqldata:/var/opt/mssql
 
