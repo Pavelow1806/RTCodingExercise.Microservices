@@ -6,5 +6,35 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Registration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().PurchasePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().SalePrice)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plate in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => plate.Registration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => plate.PurchasePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => plate.SalePrice)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
