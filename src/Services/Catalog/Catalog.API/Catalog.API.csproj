@@ -40,8 +40,4 @@
 	  <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Services\DataService\" />
-	</ItemGroup>
-
 </Project>

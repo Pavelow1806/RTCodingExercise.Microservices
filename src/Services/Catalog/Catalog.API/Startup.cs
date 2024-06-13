@@ -1,4 +1,5 @@
-﻿using MassTransit;
+﻿using Catalog.API.Services.DataService;
+using MassTransit;
 using Microsoft.OpenApi.Models;
 using RabbitMQ.Client;
 
@@ -25,6 +26,9 @@ namespace Catalog.API
                         //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
                         sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
                     }));
+
+            // Register the data service for dependency injection
+            services.AddTransient<IDataService, DataService>();
 
             services.AddSwaggerGen(options =>
             {

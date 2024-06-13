@@ -1,3 +1,5 @@
+using Catalog.API.Configuration;
+
 string Namespace = typeof(Startup).Namespace;
 string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
 
@@ -69,6 +71,11 @@ IConfiguration GetConfiguration()
         .AddEnvironmentVariables();
 
     var config = builder.Build();
+
+    DataConfiguration.Initialise(
+        decimal.Parse(config["DataConfiguration:MarkupMultiplier"]),
+        int.Parse(config["DataConfiguration:ItemsPerPage"])
+    );
 
     return builder.Build();
 }
